@@ -1,0 +1,33 @@
+................................................................................
+    
+    Householder prediction
+
+    Pentru calcularea histogramei RGB am transformat imaginea in 3 matrice de
+intregi, cu ajutorul functiei "imread". Sunt stabilite apoi marginile intre care
+se impart valorile, in vectorul "edges". Cu ajutorul functiei "histc", obtinem o
+matrice, pentru care calculam suma liniilor pentru a obtine vectorul cautat de
+noi. Functia "RGB_to_HSV" este implementata prin vectorizarea codului prezentat
+in enunt, pentru acest lucru matricele au fost transformate in vectori si am
+evitat cazurile speciale (impartirile la 0) prin selectarea valorilor potrivite
+cu ajutorul functiei "find". 
+Histograma pentru HSV se realizeaza asemanator cu cea pentru spatiul RGB. Functia
+"learn" se foloseste de cunostintele de algebra si rezolvarea unui sistem
+supradeterminat, astfel se inmulteste cu X transpus in partea stanga, iar apoi
+se rezolva cu Hoseholder si SST. Mentionez ca am folosit aceasta abordare,
+pentru ca am observat ca asa se obtinea cea mai buna aproximare pentru w.
+    Precizez de asemenea ca functia Householder a fost luata de site-ul
+"acs.curs.pub.ro", de la sectiunea de metode numerice.
+    In functia "evaluate" pentru a calcula cat mai rapid si eficient categoria
+de imagini din care fac parte imaginile din setul de date, am creat o matrice cu
+trasaturile imaginilor testate, la care am adaugat o coloana de valori de 1.
+Aceasta s-a inmultit cu vectorul de probabilitati, semnul vectorului obtinut,
+fiind comparat cu vectorul original si stabilindu-se astfel, procentul de
+evaluari corecte.
+................................................................................
+
+    Gradient Descent prediction
+
+    Pentru functia de learn au fost urmarite indicatiile din enunt, vectorizand
+cateva sume pentru eficienta. Functia "evaluate" este implementata asemanator cu
+cea de la taskul 3, insa au fost scalate coloanele.
+................................................................................
